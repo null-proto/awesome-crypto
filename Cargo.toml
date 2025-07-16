@@ -1,0 +1,10 @@
+[workspace]
+resolver = "3"
+members = [ "libcrypt", "xor-enc" ]
+
+
+[workspace.dependencies]
+libcrypt = { path = "./libcrypt/" }
+clap = { version = "4.5.41", features = ["derive"] }
+
+

@@ -1,0 +1,9 @@
+[package]
+name = "xor-enc"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { workspace = true , features = ["derive" ] }
+libcrypt = { workspace = true }
+# clap = { workspace = true }
