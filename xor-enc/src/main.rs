@@ -6,13 +6,13 @@ struct XorCrypt {
 }
 
 impl CryptFunction for XorCrypt {
-    fn encrypt(&self,data:&mut [u8]) {
+    fn encrypt(&mut self,data:&mut [u8]) {
         for i in data {
             *i ^= self.key;
         }
     }
 
-    fn decrypt(&self,data:&mut [u8]) {
+    fn decrypt(&mut self,data:&mut [u8]) {
         for i in data {
             *i ^= self.key;
         }

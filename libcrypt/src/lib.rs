@@ -15,7 +15,7 @@ impl Cryptic {
         }
     }
 
-    pub fn encrypt(&self, enc_fn : impl CryptFunction) {
+    pub fn encrypt(&mut self, mut enc_fn : impl CryptFunction) {
         let mut file = std::fs::OpenOptions::new()
             .write(true)
             .read(true)
@@ -54,7 +54,7 @@ impl Cryptic {
     }
 
 
-    pub fn decrypt(&self, enc_fn : &mut impl CryptFunction) {
+    pub fn decrypt(&mut self, enc_fn : &mut impl CryptFunction) {
         let mut file = std::fs::OpenOptions::new()
             .write(true)
             .read(true)
@@ -98,8 +98,8 @@ impl Cryptic {
 
 
 pub trait CryptFunction {
-    fn encrypt(&self,data:&mut [u8]);
-    fn decrypt(&self,data:&mut [u8]);
+    fn encrypt(&mut self,data:&mut [u8]);
+    fn decrypt(&mut self,data:&mut [u8]);
     fn get_signature(&self) -> &[u8];
     fn set_signature(&mut self, sig: &[u8]);
 }
